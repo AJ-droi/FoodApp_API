@@ -132,6 +132,7 @@ export const verifyUser = async (req: Request, res: Response) => {
 export const Login = async (req: Request, res: Response, next: NextFunction) => {
     try{
         const { email, password} = req.body
+        
         const validateResult = loginSchema.validate(req.body,option)
         if(validateResult.error){
             return res.status(400).json({
@@ -142,16 +143,17 @@ export const Login = async (req: Request, res: Response, next: NextFunction) => 
    
         //check if user exist
         const User = await UserInstance.findOne({where:{email:email}})as unknown as UserAttributes;
-        
-        if(User.verified === true){
+        console.log(User)
+        if(User.verified){
            const validation = await validatePassword(password, User.password, User.salt)
+          
            if(validation){
             let signature = await Generatesignature({
                 id: User.id,
                 email: User.email,
                 verified: User.verified,
             });
-
+            console.log("hello")
             return res.status(200).json({
                 message:"You have Successfully logged In",
                 signature,
