@@ -21,11 +21,19 @@ db.sync().then(() => {
 })
 
 const app = express()
-app.use(cors())
+
+const corsOptions = {
+    origin: 'https://foodapi-5k61.onrender.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json())
 app.use(logger('dev'))
 app.use(cookieParser())
+
 
 //Router Middleware
 app.use('/users', userRouter)
