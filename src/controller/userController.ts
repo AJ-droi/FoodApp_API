@@ -69,7 +69,7 @@ export const Register = async (req: Request, res: Response, next: NextFunction) 
             })
         }
         return res.status(400).json({
-            message: 'User Already Exist'
+            Error: 'User Already Exist'
         })
 
     }catch(err){

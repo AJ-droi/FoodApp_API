@@ -1,12 +1,10 @@
 import express, {Request, Response, NextFunction} from 'express'
 import {getAllUsers, getSingleUser, Login, Register, resendOTP, updateUserProfile, verifyUser} from '../controller/userController'
 import { auth } from '../middleware/authorization'
-import cors from 'cors'
 
 const router = express.Router()
 
-
-router.post('/signup', cors(), Register)
+router.post('/signup', Register)
 router.post('/verify/:signature', verifyUser)
 router.post('/login', Login)
 router.get('/resend-otp/:signature', resendOTP)
