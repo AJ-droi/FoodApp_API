@@ -22,13 +22,14 @@ db.sync().then(() => {
 
 const app = express()
 
-const corsOptions = {
-    origin: 'https://foodorderingapp.onrender.com/register',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+// const corsOptions = {
+//     origin: 'https://localhost:',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   }
   
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
