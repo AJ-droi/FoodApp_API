@@ -29,7 +29,11 @@ const app = express()
   
 
 // app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors({
+    origin: ['http://192.168.1.98:3001', 'https://foodorderingapp.onrender.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
