@@ -23,7 +23,7 @@ db.sync().then(() => {
 const app = express()
 
 const corsOptions = {
-    origin: 'https://foodorderingapp.onrender.com',
+    origin: 'https://foodorderingapp.onrender.com/register',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
   
