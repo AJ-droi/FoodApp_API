@@ -23,7 +23,7 @@ db.sync().then(() => {
 const app = express()
 
 const corsOptions = {
-    origin: `http://localhost:${port}`,
+    origin: `http://localhost:3000`,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
 
