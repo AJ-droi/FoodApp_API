@@ -5,6 +5,8 @@ import userRouter from './routes/users'
 import indexRouter from './routes/index'
 import adminRouter from './routes/Admin'
 import vendorRouter from './routes/vendor'
+const port = process.env.PORT || 4000;
+
 import dotenv from 'dotenv'
 import { db } from "./config"
 import cors from 'cors'
@@ -30,7 +32,7 @@ app.use('/', indexRouter)
 app.use('/admins', adminRouter)
 app.use('/vendors', vendorRouter)
 
-const port = 4000;
+
 
 app.listen(port, ()=> {
     console.log(`Server is listening on port ${port}`)

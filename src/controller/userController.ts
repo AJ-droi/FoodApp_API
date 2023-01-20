@@ -109,7 +109,7 @@ export const verifyUser = async (req: Request, res: Response) => {
                 return res.status(200).json({
                     message: 'User Verified Successfully',
                     signature,
-                    verified: User.verified,
+                    verified: updatedUser.verified,
                     role: User.role
                 })
             }
@@ -134,6 +134,7 @@ export const Login = async (req: Request, res: Response, next: NextFunction) => 
         const { email, password} = req.body
         
         const validateResult = loginSchema.validate(req.body,option)
+        console.log("hello")
         if(validateResult.error){
             return res.status(400).json({
                 Error: validateResult.error.details[0].message
