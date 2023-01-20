@@ -6,6 +6,7 @@ import indexRouter from './routes/index'
 import adminRouter from './routes/Admin'
 import vendorRouter from './routes/vendor'
 const port = process.env.PORT || 4000;
+console.log(port)
 
 import dotenv from 'dotenv'
 import { db } from "./config"
