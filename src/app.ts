@@ -21,11 +21,11 @@ db.sync().then(() => {
 })
 
 const app = express()
+app.use(cors())
 
 app.use(express.json())
 app.use(logger('dev'))
 app.use(cookieParser())
-app.use(cors())
 
 //Router Middleware
 app.use('/users', userRouter)
