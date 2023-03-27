@@ -4,6 +4,8 @@ import { auth } from '../middleware/authorization'
 
 const router = express.Router()
 
+
+
 router.post('/signup', Register)
 router.post('/verify/:signature', verifyUser)
 router.post('/login', Login)

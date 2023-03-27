@@ -5,12 +5,17 @@ import userRouter from './routes/users'
 import indexRouter from './routes/index'
 import adminRouter from './routes/Admin'
 import vendorRouter from './routes/vendor'
+import swaggerJSDoc from 'swagger-jsdoc'
+import swaggerUi from 'swagger-ui-express'
+
+
 const port = process.env.PORT || 4000;
 console.log(port)
 
 import dotenv from 'dotenv'
 import { db } from "./config"
 import cors from 'cors'
+import { swaggerSpec } from "./utils/swagger"
 dotenv.config()
 
 //Sequelize Connection
@@ -21,6 +26,10 @@ db.sync().then(() => {
 })
 
 const app = express()
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 app.use(cors());
 
